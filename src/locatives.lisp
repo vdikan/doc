@@ -13,6 +13,7 @@
            #:compiler-macro
            #:constant
            ;; TODO: probably remove?
+           #:polymorphic-function       ; hawthorne
            #:dislocated
            #:function
            #:generic-function

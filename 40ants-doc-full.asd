@@ -15,12 +15,16 @@
                "40ants-doc-full/builder"
                "40ants-doc-full/doc"
 
+               ;; Hawthorne's mod for polymorphic functions
+               "polymorphic-functions"
                ;; TODO: Все эти locatives надо сделать доступными в минимальном пакете
                ;; может быть не загружать сами модули, но сделать так, чтобы на них можно было ссылаться
                "40ants-doc-full/commondoc/changelog"
                "40ants-doc-full/commondoc/section"
                "40ants-doc-full/github"
                
+               "40ants-doc-full/locatives/polymorphic-function"
+
                "40ants-doc-full/locatives/argument"
                "40ants-doc-full/locatives/asdf-system"
                "40ants-doc-full/locatives/class"
