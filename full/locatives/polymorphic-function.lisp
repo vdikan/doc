@@ -31,10 +31,10 @@
     (40ants-doc/reference::make-reference name
                                           '40ants-doc/locatives::polymorphic-function)))
 
-;; (defmethod 40ants-doc-full/commondoc/builder::to-commondoc ((obj polymorphic-function))
-(defmethod 40ants-doc-full/commondoc/builder:reference-to-commondoc ((symbol symbol) (locative-type (eql '40ants-doc/locatives::polymorphic-function)) locative-args)
+(defmethod 40ants-doc-full/commondoc/builder::to-commondoc ((obj polymorphic-function))
   (let* ((arglist (swank-backend:arglist obj))
-         (docstring (40ants-doc/docstring:get-docstring obj 'function))
+         (function-symbol (polymorphic-functions::polymorphic-function-name obj))
+         (docstring (40ants-doc/docstring:get-docstring function-symbol 'function))
          (children (when docstring
                      (40ants-doc-full/commondoc/markdown:parse-markdown docstring)))
          (reference (canonical-reference obj))
