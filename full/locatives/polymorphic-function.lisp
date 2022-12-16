@@ -35,8 +35,12 @@
   (let* ((arglist (swank-backend:arglist obj))
          (function-symbol (polymorphic-functions::polymorphic-function-name obj))
          (docstring (40ants-doc/docstring:get-docstring function-symbol 'function))
-         (children (when docstring
-                     (40ants-doc-full/commondoc/markdown:parse-markdown docstring)))
+         (children (when docstring      ;FIXME: ad-hoc formatting of the polymorphic function docstring
+                     (remove-if (lambda (s) (string= "Documentation:" s))
+                                (mapcar (lambda (s) (string-trim " " s))
+                                        (cl-ppcre:split #\newline docstring)))))
+         (children (when children
+                     (mapcar '40ants-doc-full/commondoc/markdown:parse-markdown children)))
          (reference (canonical-reference obj))
          (dislocated (40ants-doc-full/args::function-arg-names arglist)))
 
